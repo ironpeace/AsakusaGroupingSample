@@ -1,0 +1,27 @@
+digraph {
+    "c438ac55-61f2-4b2a-80ca-67b5db628f56" [shape=point];
+    "d0f11390-a242-40c8-87f8-ca921fc201e8" [shape=point];
+    "62792923-8f3a-40c3-8b9a-7cb549d6c39b" [shape=box, label="@MasterJoin\nGroupingSampleOperator.join4PreResult"];
+    "e7da3fda-b9aa-4b3a-9bac-2fac5cdf8d91" [shape=box, label="@Convert\nGroupingSampleOperator.convertToMid2FromMid1"];
+    "78b69f50-1c5a-472f-87bb-a5265105dfcd" [shape=invhouse, label="originaldata"];
+    "37eb8a88-63a5-4a6f-a6a7-c6af689eda5e" [shape=point];
+    "e52aa172-64ea-46ea-aad4-4a7a09202bd8" [shape=box, label="@MasterJoin\nGroupingSampleOperator.join4Mid1"];
+    "f804d85c-bd48-42cc-8468-8cbc94517529" [shape=point];
+    "b3dfeecc-89ad-431d-8851-5c469e1105dc" [shape=box, label="@Convert\nGroupingSampleOperator.convertToResult"];
+    "ab4a25bd-640b-4efd-81dc-abd715cac03c" [shape=point];
+    "f19a4a77-263f-4011-a2ee-933ab3d65bd1" [shape=box, label="@Branch\nGroupingSampleOperator.balance"];
+    "616621e7-5c5d-41e4-b804-6648cf5760c9" [shape=invhouse, label="result"];
+    "62792923-8f3a-40c3-8b9a-7cb549d6c39b" -> "b3dfeecc-89ad-431d-8851-5c469e1105dc" [label="joined>pre"];
+    "62792923-8f3a-40c3-8b9a-7cb549d6c39b" -> "ab4a25bd-640b-4efd-81dc-abd715cac03c" [label="missed>in"];
+    "e7da3fda-b9aa-4b3a-9bac-2fac5cdf8d91" -> "f804d85c-bd48-42cc-8468-8cbc94517529" [label="original>in"];
+    "e7da3fda-b9aa-4b3a-9bac-2fac5cdf8d91" -> "62792923-8f3a-40c3-8b9a-7cb549d6c39b" [label="out>mid2"];
+    "78b69f50-1c5a-472f-87bb-a5265105dfcd" -> "f19a4a77-263f-4011-a2ee-933ab3d65bd1" [label="port>originaldata"];
+    "e52aa172-64ea-46ea-aad4-4a7a09202bd8" -> "62792923-8f3a-40c3-8b9a-7cb549d6c39b" [label="joined>mid1"];
+    "e52aa172-64ea-46ea-aad4-4a7a09202bd8" -> "e7da3fda-b9aa-4b3a-9bac-2fac5cdf8d91" [label="joined>mid1"];
+    "e52aa172-64ea-46ea-aad4-4a7a09202bd8" -> "37eb8a88-63a5-4a6f-a6a7-c6af689eda5e" [label="missed>in"];
+    "b3dfeecc-89ad-431d-8851-5c469e1105dc" -> "d0f11390-a242-40c8-87f8-ca921fc201e8" [label="original>in"];
+    "b3dfeecc-89ad-431d-8851-5c469e1105dc" -> "616621e7-5c5d-41e4-b804-6648cf5760c9" [label="out>port"];
+    "f19a4a77-263f-4011-a2ee-933ab3d65bd1" -> "e52aa172-64ea-46ea-aad4-4a7a09202bd8" [label="before>t11"];
+    "f19a4a77-263f-4011-a2ee-933ab3d65bd1" -> "e52aa172-64ea-46ea-aad4-4a7a09202bd8" [label="current>t12"];
+    "f19a4a77-263f-4011-a2ee-933ab3d65bd1" -> "c438ac55-61f2-4b2a-80ca-67b5db628f56" [label="old>in"];
+}

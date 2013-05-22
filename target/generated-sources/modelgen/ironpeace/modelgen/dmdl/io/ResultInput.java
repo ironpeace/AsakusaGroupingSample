@@ -26,7 +26,7 @@ public final class ResultInput implements ModelInput<Result> {
         parser.fill(model.getKeycodeOption());
         parser.fill(model.getUseridOption());
         parser.fill(model.getTermOption());
-        parser.fill(model.getDataOption());
+        parser.fill(model.getData0Option());
         parser.fill(model.getData1Option());
         parser.fill(model.getAlertOption());
         parser.endRecord();

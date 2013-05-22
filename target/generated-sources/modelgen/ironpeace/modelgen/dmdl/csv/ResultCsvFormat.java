@@ -85,7 +85,7 @@ public final class ResultCsvFormat extends BinaryStreamFormat<Result> {
             parser.fill(object.getKeycodeOption());
             parser.fill(object.getUseridOption());
             parser.fill(object.getTermOption());
-            parser.fill(object.getDataOption());
+            parser.fill(object.getData0Option());
             parser.fill(object.getData1Option());
             parser.fill(object.getAlertOption());
             parser.endRecord();
@@ -104,7 +104,7 @@ public final class ResultCsvFormat extends BinaryStreamFormat<Result> {
             emitter.emit(object.getKeycodeOption());
             emitter.emit(object.getUseridOption());
             emitter.emit(object.getTermOption());
-            emitter.emit(object.getDataOption());
+            emitter.emit(object.getData0Option());
             emitter.emit(object.getData1Option());
             emitter.emit(object.getAlertOption());
             emitter.endRecord();

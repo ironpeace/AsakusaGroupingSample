@@ -1,0 +1,33 @@
+digraph {
+    subgraph "cluster_388e30bd-1d15-446e-b7d0-1e639518525e" {
+        label = "stage0002";
+        style = bold;
+        "1c88ed26-b81f-4146-9d85-3104648723dc" [shape=box, label="@Convert\nGroupingSampleOperator.convertToResult"];
+        "99d4ab1b-f9aa-4c02-b898-d1e63161e96d" [shape=box, label="@MasterJoin\nGroupingSampleOperator.join4PreResult"];
+        "001cf3ee-215d-4ba3-b3fc-3301ce1202ab" [shape=box, label="@Convert\nGroupingSampleOperator.convertToMid2FromMid1"];
+        "8280ad04-6ec4-464e-8b96-ecf47b263efc" [shape=point];
+    }
+    subgraph "cluster_b7fb8b80-f824-402c-b14d-dc1a7ba46f1d" {
+        label = "stage0001";
+        style = bold;
+        "b6bb9f01-7462-4abc-8a24-87c867d260da" [shape=box, label="@MasterJoin\nGroupingSampleOperator.join4Mid1"];
+        "1b69cb19-eeb1-43fb-9e11-1f3bebf4e39e" [shape=box, label="@Branch\nGroupingSampleOperator.balance"];
+    }
+    subgraph "cluster_cb5a4d36-d264-4560-8a75-388a80f4e781" {
+        label = "(sink)";
+        "95341f21-e4de-45df-8e04-1e50c2072f5f" [shape=invhouse, label="result"];
+    }
+    subgraph "cluster_359216c3-e232-45c8-9b1e-900eacf9317f" {
+        label = "(source)";
+        "1ffe69d6-f12b-4431-88bc-37318c1836a8" [shape=invhouse, label="originaldata"];
+    }
+    "1c88ed26-b81f-4146-9d85-3104648723dc" -> "95341f21-e4de-45df-8e04-1e50c2072f5f" [label="out>port"];
+    "99d4ab1b-f9aa-4c02-b898-d1e63161e96d" -> "1c88ed26-b81f-4146-9d85-3104648723dc" [label="joined>pre"];
+    "001cf3ee-215d-4ba3-b3fc-3301ce1202ab" -> "99d4ab1b-f9aa-4c02-b898-d1e63161e96d" [label="out>mid2"];
+    "8280ad04-6ec4-464e-8b96-ecf47b263efc" -> "99d4ab1b-f9aa-4c02-b898-d1e63161e96d" [label="out>mid1"];
+    "b6bb9f01-7462-4abc-8a24-87c867d260da" -> "001cf3ee-215d-4ba3-b3fc-3301ce1202ab" [label="joined>mid1"];
+    "b6bb9f01-7462-4abc-8a24-87c867d260da" -> "8280ad04-6ec4-464e-8b96-ecf47b263efc" [label="joined>in"];
+    "1b69cb19-eeb1-43fb-9e11-1f3bebf4e39e" -> "b6bb9f01-7462-4abc-8a24-87c867d260da" [label="current>t12"];
+    "1b69cb19-eeb1-43fb-9e11-1f3bebf4e39e" -> "b6bb9f01-7462-4abc-8a24-87c867d260da" [label="before>t11"];
+    "1ffe69d6-f12b-4431-88bc-37318c1836a8" -> "1b69cb19-eeb1-43fb-9e11-1f3bebf4e39e" [label="port>originaldata"];
+}

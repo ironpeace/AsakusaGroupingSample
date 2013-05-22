@@ -1,0 +1,27 @@
+digraph {
+    "acd58849-3d09-42ae-b0f4-0b768ea267d4" [shape=box, label="@MasterJoin\nGroupingSampleOperator.join4PreResult"];
+    "ea5e9385-d8e7-4dc4-bc21-d6bc1384167f" [shape=box, label="@Convert\nGroupingSampleOperator.convertToMid2FromMid1"];
+    "25b2aa88-018e-417a-89c9-afca5ab64bbe" [shape=point];
+    "923222c8-6d28-42d3-b77b-239eaaa1962f" [shape=invhouse, label="originaldata"];
+    "0d10b176-b386-408e-afcc-9de9015a7f1e" [shape=point];
+    "ab09d3d5-7c02-4fb2-86f1-c9aba037711d" [shape=box, label="@Branch\nGroupingSampleOperator.balance"];
+    "5029e15e-28aa-4ecd-8320-cd4044fa5cd7" [shape=point];
+    "2b482d87-c447-4dc4-b05b-cd0adbf30eaf" [shape=invhouse, label="result"];
+    "77c0c9f3-fa10-40bf-966c-fadff0fdf554" [shape=point];
+    "3ebe4424-0cc6-4668-8ca9-6e4bc884d4b8" [shape=box, label="@MasterJoin\nGroupingSampleOperator.join4Mid1"];
+    "17324720-33a5-49ae-8aaf-c1ee7a9e9f68" [shape=box, label="@Convert\nGroupingSampleOperator.convertToResult"];
+    "39707b84-0d6a-43de-8848-87bd26eb77d9" [shape=point];
+    "acd58849-3d09-42ae-b0f4-0b768ea267d4" -> "17324720-33a5-49ae-8aaf-c1ee7a9e9f68" [label="joined>pre"];
+    "acd58849-3d09-42ae-b0f4-0b768ea267d4" -> "5029e15e-28aa-4ecd-8320-cd4044fa5cd7" [label="missed>in"];
+    "ea5e9385-d8e7-4dc4-bc21-d6bc1384167f" -> "77c0c9f3-fa10-40bf-966c-fadff0fdf554" [label="original>in"];
+    "ea5e9385-d8e7-4dc4-bc21-d6bc1384167f" -> "acd58849-3d09-42ae-b0f4-0b768ea267d4" [label="out>mid2"];
+    "923222c8-6d28-42d3-b77b-239eaaa1962f" -> "ab09d3d5-7c02-4fb2-86f1-c9aba037711d" [label="port>originaldata"];
+    "ab09d3d5-7c02-4fb2-86f1-c9aba037711d" -> "3ebe4424-0cc6-4668-8ca9-6e4bc884d4b8" [label="before>t11"];
+    "ab09d3d5-7c02-4fb2-86f1-c9aba037711d" -> "3ebe4424-0cc6-4668-8ca9-6e4bc884d4b8" [label="current>t12"];
+    "ab09d3d5-7c02-4fb2-86f1-c9aba037711d" -> "39707b84-0d6a-43de-8848-87bd26eb77d9" [label="old>in"];
+    "3ebe4424-0cc6-4668-8ca9-6e4bc884d4b8" -> "acd58849-3d09-42ae-b0f4-0b768ea267d4" [label="joined>mid1"];
+    "3ebe4424-0cc6-4668-8ca9-6e4bc884d4b8" -> "ea5e9385-d8e7-4dc4-bc21-d6bc1384167f" [label="joined>mid1"];
+    "3ebe4424-0cc6-4668-8ca9-6e4bc884d4b8" -> "0d10b176-b386-408e-afcc-9de9015a7f1e" [label="missed>in"];
+    "17324720-33a5-49ae-8aaf-c1ee7a9e9f68" -> "25b2aa88-018e-417a-89c9-afca5ab64bbe" [label="original>in"];
+    "17324720-33a5-49ae-8aaf-c1ee7a9e9f68" -> "2b482d87-c447-4dc4-b05b-cd0adbf30eaf" [label="out>port"];
+}

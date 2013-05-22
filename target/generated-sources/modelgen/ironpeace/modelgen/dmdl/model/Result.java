@@ -18,19 +18,19 @@ import org.apache.hadoop.io.Writable;
  * Resultを表すデータモデルクラス。
  */
 @DataModelKind("DMDL")@ModelInputLocation(ResultInput.class)@ModelOutputLocation(ResultOutput.class)@PropertyOrder({
-            "keycode", "userid", "term", "data", "data1", "alert"}) public class Result implements DataModel<Result>, 
+            "keycode", "userid", "term", "data0", "data1", "alert"}) public class Result implements DataModel<Result>, 
         Writable {
     private final IntOption keycode = new IntOption();
     private final StringOption userid = new StringOption();
     private final IntOption term = new IntOption();
-    private final LongOption data = new LongOption();
+    private final LongOption data0 = new LongOption();
     private final LongOption data1 = new LongOption();
     private final StringOption alert = new StringOption();
     @Override@SuppressWarnings("deprecation") public void reset() {
         this.keycode.setNull();
         this.userid.setNull();
         this.term.setNull();
-        this.data.setNull();
+        this.data0.setNull();
         this.data1.setNull();
         this.alert.setNull();
     }
@@ -38,7 +38,7 @@ import org.apache.hadoop.io.Writable;
         this.keycode.copyFrom(other.keycode);
         this.userid.copyFrom(other.userid);
         this.term.copyFrom(other.term);
-        this.data.copyFrom(other.data);
+        this.data0.copyFrom(other.data0);
         this.data1.copyFrom(other.data1);
         this.alert.copyFrom(other.alert);
     }
@@ -134,29 +134,29 @@ import org.apache.hadoop.io.Writable;
      * @return data0
      * @throws NullPointerException data0の値が<code>null</code>である場合
      */
-    public long getData() {
-        return this.data.get();
+    public long getData0() {
+        return this.data0.get();
     }
     /**
      * data0を設定する。
      * @param value 設定する値
      */
-    @SuppressWarnings("deprecation") public void setData(long value) {
-        this.data.modify(value);
+    @SuppressWarnings("deprecation") public void setData0(long value) {
+        this.data0.modify(value);
     }
     /**
      * <code>null</code>を許すdata0を返す。
      * @return data0
      */
-    public LongOption getDataOption() {
-        return this.data;
+    public LongOption getData0Option() {
+        return this.data0;
     }
     /**
      * data0を設定する。
      * @param option 設定する値、<code>null</code>の場合にはこのプロパティが<code>null</code>を表すようになる
      */
-    @SuppressWarnings("deprecation") public void setDataOption(LongOption option) {
-        this.data.copyFrom(option);
+    @SuppressWarnings("deprecation") public void setData0Option(LongOption option) {
+        this.data0.copyFrom(option);
     }
     /**
      * data1を返す。
@@ -226,8 +226,8 @@ import org.apache.hadoop.io.Writable;
         result.append(this.userid);
         result.append(", term=");
         result.append(this.term);
-        result.append(", data=");
-        result.append(this.data);
+        result.append(", data0=");
+        result.append(this.data0);
         result.append(", data1=");
         result.append(this.data1);
         result.append(", alert=");
@@ -241,7 +241,7 @@ import org.apache.hadoop.io.Writable;
         result = prime * result + keycode.hashCode();
         result = prime * result + userid.hashCode();
         result = prime * result + term.hashCode();
-        result = prime * result + data.hashCode();
+        result = prime * result + data0.hashCode();
         result = prime * result + data1.hashCode();
         result = prime * result + alert.hashCode();
         return result;
@@ -266,7 +266,7 @@ import org.apache.hadoop.io.Writable;
         if(this.term.equals(other.term) == false) {
             return false;
         }
-        if(this.data.equals(other.data) == false) {
+        if(this.data0.equals(other.data0) == false) {
             return false;
         }
         if(this.data1.equals(other.data1) == false) {
@@ -311,7 +311,7 @@ import org.apache.hadoop.io.Writable;
         keycode.write(out);
         userid.write(out);
         term.write(out);
-        data.write(out);
+        data0.write(out);
         data1.write(out);
         alert.write(out);
     }
@@ -319,7 +319,7 @@ import org.apache.hadoop.io.Writable;
         keycode.readFields(in);
         userid.readFields(in);
         term.readFields(in);
-        data.readFields(in);
+        data0.readFields(in);
         data1.readFields(in);
         alert.readFields(in);
     }

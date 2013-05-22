@@ -19,7 +19,7 @@ original_data = {
     @directio.csv.field(name = "data")
     data : LONG;
 };
-
+/*
 term2011 = {
     "keycode"
     keycode : INT;
@@ -47,15 +47,15 @@ term2012 = {
     "data"
     data : LONG;
 };
-
+*/
 joined middata1
- = term2011 -> {
+ = original_data -> {
  	keycode -> keycode;
     userid -> userid;
 	term -> term;
 	data -> data0;
 } % keycode
- + term2012 -> {
+ + original_data -> {
  	keycode -> keycode;
 	data -> data1;
 } % keycode;
@@ -99,7 +99,7 @@ result = {
 
     "data0"
     @directio.csv.field(name = "data0")
-    data : LONG;
+    data0 : LONG;
 
     "data1"
     @directio.csv.field(name = "data1")

@@ -1,0 +1,33 @@
+digraph {
+    subgraph "cluster_24abc6b4-c4a3-4719-af77-3677300f80b1" {
+        label = "(sink)";
+        "7ffa5598-eef6-401d-a8fd-75f8f5c46777" [shape=invhouse, label="result"];
+    }
+    subgraph "cluster_9b1e50aa-92e8-4fc5-9d53-04d5a84c11ba" {
+        label = "(source)";
+        "2ca8b6e5-43cd-40ed-97a8-8c042d1de56c" [shape=invhouse, label="originaldata"];
+    }
+    subgraph "cluster_9b2056e3-a6e1-46cf-a094-474a5a95a45f" {
+        label = "stage0001";
+        style = bold;
+        "c98410d8-9c4d-422a-90d5-df2484e6b389" [shape=box, label="@Branch\nGroupingSampleOperator.balance"];
+        "4d807a49-5330-442d-920a-0fc433a77c1c" [shape=box, label="@MasterJoin\nGroupingSampleOperator.join4Mid1"];
+    }
+    subgraph "cluster_ae1987c3-585c-43da-ba73-28a6231d2093" {
+        label = "stage0002";
+        style = bold;
+        "60740a81-1448-459a-af67-18207082511e" [shape=point];
+        "6cf803fc-bb11-4bbb-93cc-f51bb6915c13" [shape=box, label="@Convert\nGroupingSampleOperator.convertToMid2FromMid1"];
+        "ea0736ce-511d-4841-b798-edfac0e68fa7" [shape=box, label="@MasterJoin\nGroupingSampleOperator.join4PreResult"];
+        "834f525f-6768-4ded-84fe-672afe1cf09f" [shape=box, label="@Convert\nGroupingSampleOperator.convertToResult"];
+    }
+    "2ca8b6e5-43cd-40ed-97a8-8c042d1de56c" -> "c98410d8-9c4d-422a-90d5-df2484e6b389" [label="port>originaldata"];
+    "c98410d8-9c4d-422a-90d5-df2484e6b389" -> "4d807a49-5330-442d-920a-0fc433a77c1c" [label="current>t12"];
+    "c98410d8-9c4d-422a-90d5-df2484e6b389" -> "4d807a49-5330-442d-920a-0fc433a77c1c" [label="before>t11"];
+    "4d807a49-5330-442d-920a-0fc433a77c1c" -> "6cf803fc-bb11-4bbb-93cc-f51bb6915c13" [label="joined>mid1"];
+    "4d807a49-5330-442d-920a-0fc433a77c1c" -> "60740a81-1448-459a-af67-18207082511e" [label="joined>in"];
+    "6cf803fc-bb11-4bbb-93cc-f51bb6915c13" -> "ea0736ce-511d-4841-b798-edfac0e68fa7" [label="out>mid2"];
+    "60740a81-1448-459a-af67-18207082511e" -> "ea0736ce-511d-4841-b798-edfac0e68fa7" [label="out>mid1"];
+    "834f525f-6768-4ded-84fe-672afe1cf09f" -> "7ffa5598-eef6-401d-a8fd-75f8f5c46777" [label="out>port"];
+    "ea0736ce-511d-4841-b798-edfac0e68fa7" -> "834f525f-6768-4ded-84fe-672afe1cf09f" [label="joined>pre"];
+}

@@ -19,10 +19,10 @@ import org.apache.hadoop.io.Writable;
 /**
  * middata1を表すデータモデルクラス。
  */
-@DataModelKind("DMDL")@Joined(terms = {@Joined.Term(source = Term2011.class, mappings = {@Joined.Mapping(source = 
+@DataModelKind("DMDL")@Joined(terms = {@Joined.Term(source = OriginalData.class, mappings = {@Joined.Mapping(source = 
                 "keycode", destination = "keycode"),@Joined.Mapping(source = "userid", destination = "userid"),@Joined.
                 Mapping(source = "term", destination = "term"),@Joined.Mapping(source = "data", destination = "data0")}, 
-            shuffle = @Key(group = {"keycode"})),@Joined.Term(source = Term2012.class, mappings = {@Joined.Mapping(
+            shuffle = @Key(group = {"keycode"})),@Joined.Term(source = OriginalData.class, mappings = {@Joined.Mapping(
                 source = "keycode", destination = "keycode"),@Joined.Mapping(source = "data", destination = "data1")}, 
             shuffle = @Key(group = {"keycode"}))})@ModelInputLocation(Middata1Input.class)@ModelOutputLocation(
         Middata1Output.class)@PropertyOrder({"keycode", "userid", "term", "data0", "data1"}) public class Middata1 

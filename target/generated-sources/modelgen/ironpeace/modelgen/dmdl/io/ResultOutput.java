@@ -23,7 +23,7 @@ public final class ResultOutput implements ModelOutput<Result> {
         emitter.emit(model.getKeycodeOption());
         emitter.emit(model.getUseridOption());
         emitter.emit(model.getTermOption());
-        emitter.emit(model.getDataOption());
+        emitter.emit(model.getData0Option());
         emitter.emit(model.getData1Option());
         emitter.emit(model.getAlertOption());
         emitter.endRecord();
