@@ -1,0 +1,112 @@
+-- 入力CSVファイル形式
+
+"OriginalData"
+@directio.csv(has_header = TRUE)
+original_data = {
+    "keycode"
+    @directio.csv.field(name = "keycode")
+    keycode : INT;
+
+    "userid"
+    @directio.csv.field(name = "userid")
+    userid : TEXT;
+
+    "term"
+    @directio.csv.field(name = "term")
+    term : INT;
+
+    "data"
+    @directio.csv.field(name = "data")
+    data : LONG;
+};
+
+term2011 = {
+    "keycode"
+    keycode : INT;
+
+    "userid"
+    userid : TEXT;
+
+    "term"
+    term : INT;
+
+    "data"
+    data : LONG;
+};
+
+term2012 = {
+    "keycode"
+    keycode : INT;
+
+    "userid"
+    userid : TEXT;
+
+    "term"
+    term : INT;
+
+    "data"
+    data : LONG;
+};
+
+joined middata1
+ = term2011 -> {
+ 	keycode -> keycode;
+    userid -> userid;
+	term -> term;
+	data -> data0;
+} % keycode
+ + term2012 -> {
+ 	keycode -> keycode;
+	data -> data1;
+} % keycode;
+
+middata2 = {
+    "keycode"
+    keycode : INT;
+
+    "alert"
+    alert : TEXT;
+};
+
+joined pre_result
+ = middata1 -> {
+ 	keycode -> keycode;
+    userid -> userid;
+	term -> term;
+	data0 -> data0;
+	data1 -> data1;
+} % keycode 
+ + middata2 -> {
+ 	keycode -> keycode;
+    alert -> alert;
+} % keycode; 
+
+"Result"
+@directio.csv(has_header = TRUE)
+result = {
+
+    "keycode"
+    @directio.csv.field(name = "keycode")
+    keycode : INT;
+
+    "userid"
+    @directio.csv.field(name = "userid")
+    userid : TEXT;
+
+    "term"
+    @directio.csv.field(name = "term")
+    term : INT;
+
+    "data0"
+    @directio.csv.field(name = "data0")
+    data : LONG;
+
+    "data1"
+    @directio.csv.field(name = "data1")
+    data1 : LONG;
+
+    "alert"
+    @directio.csv.field(name = "alert")
+    alert : TEXT;
+};
+
