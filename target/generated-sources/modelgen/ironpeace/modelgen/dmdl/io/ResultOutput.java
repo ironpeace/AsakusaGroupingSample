@@ -20,9 +20,7 @@ public final class ResultOutput implements ModelOutput<Result> {
         this.emitter = emitter;
     }
     @Override public void write(Result model) throws IOException {
-        emitter.emit(model.getKeycodeOption());
         emitter.emit(model.getUseridOption());
-        emitter.emit(model.getTermOption());
         emitter.emit(model.getData0Option());
         emitter.emit(model.getData1Option());
         emitter.emit(model.getAlertOption());

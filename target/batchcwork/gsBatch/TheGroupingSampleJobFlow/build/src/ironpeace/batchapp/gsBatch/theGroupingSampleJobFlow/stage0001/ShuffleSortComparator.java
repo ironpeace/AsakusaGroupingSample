@@ -17,9 +17,9 @@ import org.apache.hadoop.io.WritableComparator;
         switch(segmentId1) {
             case 1:
             case 2:
-                lim1 = com.asakusafw.runtime.value.IntOption.getBytesLength(b1, s1 + o1, l1 - o1);
-                lim2 = com.asakusafw.runtime.value.IntOption.getBytesLength(b2, s2 + o2, l2 - o2);
-                diff = com.asakusafw.runtime.value.IntOption.compareBytes(b1, s1 + o1, lim1, b2, s2 + o2, lim2);
+                lim1 = com.asakusafw.runtime.value.StringOption.getBytesLength(b1, s1 + o1, l1 - o1);
+                lim2 = com.asakusafw.runtime.value.StringOption.getBytesLength(b2, s2 + o2, l2 - o2);
+                diff = com.asakusafw.runtime.value.StringOption.compareBytes(b1, s1 + o1, lim1, b2, s2 + o2, lim2);
                 if(diff != 0) return diff;
                 o1 += lim1;
                 o2 += lim2;

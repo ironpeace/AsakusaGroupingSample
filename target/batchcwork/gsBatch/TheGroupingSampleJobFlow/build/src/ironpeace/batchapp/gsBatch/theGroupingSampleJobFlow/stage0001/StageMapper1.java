@@ -6,7 +6,7 @@ import java.io.IOException;
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.mapreduce.Mapper;
 /**
- * {@code [originaldata->GroupingSampleOperator.balance(operator#567038057){owner=FlowBlock&#64;1055945557}]}
+ * {@code [originaldata->GroupingSampleOperator.balance(operator#1579795854){owner=FlowBlock&#64;896607825}]}
          * の処理を担当するマッププログラム。
  */
 @SuppressWarnings("deprecation") public final class StageMapper1 extends Mapper<NullWritable, OriginalData, ShuffleKey, 
@@ -17,8 +17,8 @@ import org.apache.hadoop.mapreduce.Mapper;
     @Override public void setup(Context context) throws IOException, InterruptedException {
         this.runtimeResourceManager = new RuntimeResourceManager(context.getConfiguration());
         this.runtimeResourceManager.setup();
-        final MapOutputFragment1 shuffle = new MapOutputFragment1(context);
         final MapOutputFragment2 shuffle0 = new MapOutputFragment2(context);
+        final MapOutputFragment1 shuffle = new MapOutputFragment1(context);
         this.line = new MapFragment1(shuffle, shuffle0, new VoidResult<OriginalData>());
     }
     @Override public void cleanup(Context context) throws IOException, InterruptedException {

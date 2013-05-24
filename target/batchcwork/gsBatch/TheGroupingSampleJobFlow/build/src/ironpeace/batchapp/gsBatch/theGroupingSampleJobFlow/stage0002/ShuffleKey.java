@@ -1,6 +1,6 @@
 package ironpeace.batchapp.gsBatch.theGroupingSampleJobFlow.stage0002;
 import com.asakusafw.runtime.flow.SegmentedWritable;
-import com.asakusafw.runtime.value.IntOption;
+import com.asakusafw.runtime.value.StringOption;
 import ironpeace.modelgen.dmdl.model.Middata1;
 import ironpeace.modelgen.dmdl.model.Middata2;
 import java.io.DataInput;
@@ -18,16 +18,16 @@ import java.io.IOException;
         return this.portId;
     }
     /**
-     * GroupingSampleOperator.join4PreResult#mid1が利用するキー (keycode)
+     * GroupingSampleOperator.join4PreResult#mid1が利用するキー (userid)
      */
-    public IntOption groupElem0Term1 = new IntOption();
+    public StringOption groupElem0Term1 = new StringOption();
     /**
      * GroupingSampleOperator.join4PreResult#mid1のキーの元になるモデルオブジェクトを設定する
      * @param source 設定するモデルオブジェクト
      */
     public void setPort1(Middata1 source) {
         this.portId = 1;
-        this.groupElem0Term1.copyFrom(source.getKeycodeOption());
+        this.groupElem0Term1.copyFrom(source.getUseridOption());
     }
     /**
      * GroupingSampleOperator.join4PreResult#mid2のキーの元になるモデルオブジェクトを設定する
@@ -35,7 +35,7 @@ import java.io.IOException;
      */
     public void setPort2(Middata2 source) {
         this.portId = 2;
-        this.groupElem0Term1.copyFrom(source.getKeycodeOption());
+        this.groupElem0Term1.copyFrom(source.getUseridOption());
     }
     /**
      * 指定のキーのグループ情報をこのオブジェクトに複製する

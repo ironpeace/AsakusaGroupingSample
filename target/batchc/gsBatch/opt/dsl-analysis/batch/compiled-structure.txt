@@ -17,8 +17,8 @@ flow: TheGroupingSampleJobFlow
             stage: ironpeace.batchapp.gsBatch.theGroupingSampleJobFlow.stage0002.StageClient
                 mapper: ironpeace.batchapp.gsBatch.theGroupingSampleJobFlow.stage0002.StageMapper1
                     fragment: ironpeace.batchapp.gsBatch.theGroupingSampleJobFlow.stage0002.MapFragment2
-                        operator: ironpeace.operator.GroupingSampleOperator#convertToMid2FromMid1([class ironpeace.modelgen.dmdl.model.Middata1])[]
                     fragment: ironpeace.batchapp.gsBatch.theGroupingSampleJobFlow.stage0002.MapFragment1
+                        operator: ironpeace.operator.GroupingSampleOperator#convertToMid2FromMid1([class ironpeace.modelgen.dmdl.model.Middata1])[]
                 reducer: ironpeace.batchapp.gsBatch.theGroupingSampleJobFlow.stage0002.StageReducer
                     fragment: ironpeace.batchapp.gsBatch.theGroupingSampleJobFlow.stage0002.ReduceFragment4
                         operator: ironpeace.operator.GroupingSampleOperator#join4PreResult([class ironpeace.modelgen.dmdl.model.Middata1, class ironpeace.modelgen.dmdl.model.Middata2])[]

@@ -32,6 +32,7 @@ public abstract class GroupingSampleOperator {
 	
 	@Convert
 	public Middata2 convertToMid2FromMid1(Middata1 mid1){
+		mid2.setUserid(mid1.getUserid());
 		if(mid1.getData0() < mid1.getData1()){
 			mid2.setAlertAsString("A");
 		}else{
@@ -47,7 +48,6 @@ public abstract class GroupingSampleOperator {
 	
 	@Convert
 	public Result convertToResult(PreResult pre){
-		result.setKeycode(pre.getKeycode());
 		result.setUserid(pre.getUserid());
 		result.setData0(pre.getData0());
 		result.setData1(pre.getData1());

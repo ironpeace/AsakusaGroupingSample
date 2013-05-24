@@ -4,7 +4,7 @@ import ironpeace.modelgen.dmdl.model.Middata1;
 import ironpeace.modelgen.dmdl.model.OriginalData;
 /**
  * {@code 
-         * [t11->GroupingSampleOperator.join4Mid1(operator#590996305), t12->GroupingSampleOperator.join4Mid1(operator#590996305)]
+         * [t11->GroupingSampleOperator.join4Mid1(operator#764314945), t12->GroupingSampleOperator.join4Mid1(operator#764314945)]
          * }の処理を担当するマッププログラムの断片。
  */
 @SuppressWarnings("deprecation") public final class ReduceFragment2 extends com.asakusafw.runtime.flow.Rendezvous<
@@ -49,9 +49,7 @@ import ironpeace.modelgen.dmdl.model.OriginalData;
     private void process0002(OriginalData value) {
         if(this.sawMaster) {
             this.cache0.reset();
-            this.cache0.setKeycodeOption(this.cache.getKeycodeOption());
             this.cache0.setUseridOption(this.cache.getUseridOption());
-            this.cache0.setTermOption(this.cache.getTermOption());
             this.cache0.setData0Option(this.cache.getDataOption());
             this.cache0.setData1Option(this.cache.getDataOption());
             this.joined.add(this.cache0);

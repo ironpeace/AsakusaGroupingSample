@@ -5,10 +5,10 @@ flow: TheGroupingSampleJobFlow
     output:
         result (ironpeace.jobflow.ResultToCsv)
     flow: ironpeace.jobflow.GroupingSampleJobFlow
+        operator: ironpeace.operator.GroupingSampleOperator#convertToMid2FromMid1([class ironpeace.modelgen.dmdl.model.Middata1])[]
+        operator: ironpeace.operator.GroupingSampleOperator#join4PreResult([class ironpeace.modelgen.dmdl.model.Middata1, class ironpeace.modelgen.dmdl.model.Middata2])[]
+        operator: ironpeace.operator.GroupingSampleOperator#convertToResult([class ironpeace.modelgen.dmdl.model.PreResult])[]
+        operator: ironpeace.operator.GroupingSampleOperator#balance([class ironpeace.modelgen.dmdl.model.OriginalData])[]
         operator: ironpeace.operator.GroupingSampleOperator#join4Mid1([class ironpeace.modelgen.dmdl.model.OriginalData, class ironpeace.modelgen.dmdl.model.OriginalData])[]
         output: OutputDescription{name=result, type=class ironpeace.modelgen.dmdl.model.Result}
-        operator: ironpeace.operator.GroupingSampleOperator#convertToMid2FromMid1([class ironpeace.modelgen.dmdl.model.Middata1])[]
         input: InputDescription{name=originaldata, type=class ironpeace.modelgen.dmdl.model.OriginalData}
-        operator: ironpeace.operator.GroupingSampleOperator#convertToResult([class ironpeace.modelgen.dmdl.model.PreResult])[]
-        operator: ironpeace.operator.GroupingSampleOperator#join4PreResult([class ironpeace.modelgen.dmdl.model.Middata1, class ironpeace.modelgen.dmdl.model.Middata2])[]
-        operator: ironpeace.operator.GroupingSampleOperator#balance([class ironpeace.modelgen.dmdl.model.OriginalData])[]

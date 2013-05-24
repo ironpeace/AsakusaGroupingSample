@@ -4,7 +4,7 @@ import ironpeace.modelgen.dmdl.model.OriginalData;
 import ironpeace.operator.GroupingSampleOperator;
 import ironpeace.operator.GroupingSampleOperatorImpl;
 /**
- * {@code [originaldata->GroupingSampleOperator.balance(operator#567038057)]}の処理を担当するマッププログラムの断片。
+ * {@code [originaldata->GroupingSampleOperator.balance(operator#1579795854)]}の処理を担当するマッププログラムの断片。
  */
 @SuppressWarnings("deprecation") public final class MapFragment1 implements Result<OriginalData> {
     private final Result<OriginalData> before;

@@ -19,50 +19,20 @@ original_data = {
     @directio.csv.field(name = "data")
     data : LONG;
 };
-/*
-term2011 = {
-    "keycode"
-    keycode : INT;
 
-    "userid"
-    userid : TEXT;
-
-    "term"
-    term : INT;
-
-    "data"
-    data : LONG;
-};
-
-term2012 = {
-    "keycode"
-    keycode : INT;
-
-    "userid"
-    userid : TEXT;
-
-    "term"
-    term : INT;
-
-    "data"
-    data : LONG;
-};
-*/
 joined middata1
  = original_data -> {
- 	keycode -> keycode;
     userid -> userid;
-	term -> term;
 	data -> data0;
-} % keycode
+} % userid
  + original_data -> {
- 	keycode -> keycode;
+    userid -> userid;
 	data -> data1;
-} % keycode;
+} % userid;
 
 middata2 = {
-    "keycode"
-    keycode : INT;
+    "userid"
+    userid : TEXT;
 
     "alert"
     alert : TEXT;
@@ -70,32 +40,21 @@ middata2 = {
 
 joined pre_result
  = middata1 -> {
- 	keycode -> keycode;
     userid -> userid;
-	term -> term;
 	data0 -> data0;
 	data1 -> data1;
-} % keycode 
+} % userid 
  + middata2 -> {
- 	keycode -> keycode;
+    userid -> userid;
     alert -> alert;
-} % keycode; 
+} % userid; 
 
 "Result"
 @directio.csv(has_header = TRUE)
 result = {
-
-    "keycode"
-    @directio.csv.field(name = "keycode")
-    keycode : INT;
-
     "userid"
     @directio.csv.field(name = "userid")
     userid : TEXT;
-
-    "term"
-    @directio.csv.field(name = "term")
-    term : INT;
 
     "data0"
     @directio.csv.field(name = "data0")

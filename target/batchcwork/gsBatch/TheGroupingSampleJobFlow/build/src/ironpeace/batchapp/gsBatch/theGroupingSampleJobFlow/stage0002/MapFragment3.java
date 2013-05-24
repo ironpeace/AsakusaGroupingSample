@@ -3,7 +3,7 @@ import com.asakusafw.runtime.core.Result;
 import ironpeace.modelgen.dmdl.model.PreResult;
 import ironpeace.operator.GroupingSampleOperatorImpl;
 /**
- * {@code [pre->GroupingSampleOperator.convertToResult(operator#1579795854)]}の処理を担当するマッププログラムの断片。
+ * {@code [pre->GroupingSampleOperator.convertToResult(operator#1633127083)]}の処理を担当するマッププログラムの断片。
  */
 @SuppressWarnings("deprecation") public final class MapFragment3 implements Result<PreResult> {
     private final Result<PreResult> original;

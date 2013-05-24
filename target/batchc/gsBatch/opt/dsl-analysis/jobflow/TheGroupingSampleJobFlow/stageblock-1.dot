@@ -1,16 +1,16 @@
 digraph {
-    "9c386f39-af32-44a0-9d1a-c26142698ac4" [shape=point];
-    "e6a78240-b630-4377-ab23-cf8ebb4f99df" [shape=invhouse, label="originaldata"];
-    subgraph "cluster_1a46d738-8a78-4fe9-8c39-45299c57f05a" {
+    subgraph "cluster_008907dd-b94b-4761-842f-a3ca5bd1c998" {
         label = "stage0001";
         style = bold;
-        "85252651-55b1-464c-a181-c7f56ec3e18c" [shape=box, label="@MasterJoin\nGroupingSampleOperator.join4Mid1"];
-        "c4938673-695c-4bea-98c3-dee9c2ef337b" [shape=box, label="@Branch\nGroupingSampleOperator.balance"];
+        "08662a73-d423-4ddb-b251-f764fbf39cc8" [shape=box, label="@Branch\nGroupingSampleOperator.balance"];
+        "81b3ad8e-ba73-438a-9bae-4e4866f8c4a4" [shape=box, label="@MasterJoin\nGroupingSampleOperator.join4Mid1"];
     }
-    "470acc16-690a-40ca-a8db-28a9e221faf0" [shape=box, label="@Convert\nGroupingSampleOperator.convertToMid2FromMid1"];
-    "c4938673-695c-4bea-98c3-dee9c2ef337b" -> "85252651-55b1-464c-a181-c7f56ec3e18c" [label="before>t11"];
-    "c4938673-695c-4bea-98c3-dee9c2ef337b" -> "85252651-55b1-464c-a181-c7f56ec3e18c" [label="current>t12"];
-    "85252651-55b1-464c-a181-c7f56ec3e18c" -> "470acc16-690a-40ca-a8db-28a9e221faf0" [label="joined>mid1"];
-    "85252651-55b1-464c-a181-c7f56ec3e18c" -> "9c386f39-af32-44a0-9d1a-c26142698ac4" [label="joined>in"];
-    "e6a78240-b630-4377-ab23-cf8ebb4f99df" -> "c4938673-695c-4bea-98c3-dee9c2ef337b" [label="port>originaldata"];
+    "55d04cea-c13b-4b07-89d9-e1351944256e" [shape=point];
+    "4fd52be6-5380-473f-9ee0-494a64fec28f" [shape=invhouse, label="originaldata"];
+    "df5e3df0-d17d-4af1-a96e-1e64500db83d" [shape=box, label="@Convert\nGroupingSampleOperator.convertToMid2FromMid1"];
+    "4fd52be6-5380-473f-9ee0-494a64fec28f" -> "08662a73-d423-4ddb-b251-f764fbf39cc8" [label="port>originaldata"];
+    "08662a73-d423-4ddb-b251-f764fbf39cc8" -> "81b3ad8e-ba73-438a-9bae-4e4866f8c4a4" [label="before>t11"];
+    "08662a73-d423-4ddb-b251-f764fbf39cc8" -> "81b3ad8e-ba73-438a-9bae-4e4866f8c4a4" [label="current>t12"];
+    "81b3ad8e-ba73-438a-9bae-4e4866f8c4a4" -> "55d04cea-c13b-4b07-89d9-e1351944256e" [label="joined>in"];
+    "81b3ad8e-ba73-438a-9bae-4e4866f8c4a4" -> "df5e3df0-d17d-4af1-a96e-1e64500db83d" [label="joined>mid1"];
 }

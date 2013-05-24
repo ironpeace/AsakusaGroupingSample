@@ -20,7 +20,7 @@ public final class Middata2Output implements ModelOutput<Middata2> {
         this.emitter = emitter;
     }
     @Override public void write(Middata2 model) throws IOException {
-        emitter.emit(model.getKeycodeOption());
+        emitter.emit(model.getUseridOption());
         emitter.emit(model.getAlertOption());
         emitter.endRecord();
     }

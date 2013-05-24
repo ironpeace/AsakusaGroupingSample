@@ -25,9 +25,7 @@ public final class ResultCsvFormat extends BinaryStreamFormat<Result> {
     protected CsvConfiguration getConfiguration(boolean head) {
         List<String> headers = new ArrayList<String>();
         if(head) {
-            headers.add("keycode");
             headers.add("userid");
-            headers.add("term");
             headers.add("data0");
             headers.add("data1");
             headers.add("alert");
@@ -82,9 +80,7 @@ public final class ResultCsvFormat extends BinaryStreamFormat<Result> {
             if(parser.next() == false) {
                 return false;
             }
-            parser.fill(object.getKeycodeOption());
             parser.fill(object.getUseridOption());
-            parser.fill(object.getTermOption());
             parser.fill(object.getData0Option());
             parser.fill(object.getData1Option());
             parser.fill(object.getAlertOption());
@@ -101,9 +97,7 @@ public final class ResultCsvFormat extends BinaryStreamFormat<Result> {
             this.emitter = emitter;
         }
         @Override public void write(Result object) throws IOException {
-            emitter.emit(object.getKeycodeOption());
             emitter.emit(object.getUseridOption());
-            emitter.emit(object.getTermOption());
             emitter.emit(object.getData0Option());
             emitter.emit(object.getData1Option());
             emitter.emit(object.getAlertOption());

@@ -23,9 +23,7 @@ public final class ResultInput implements ModelInput<Result> {
         if(parser.next() == false) {
             return false;
         }
-        parser.fill(model.getKeycodeOption());
         parser.fill(model.getUseridOption());
-        parser.fill(model.getTermOption());
         parser.fill(model.getData0Option());
         parser.fill(model.getData1Option());
         parser.fill(model.getAlertOption());

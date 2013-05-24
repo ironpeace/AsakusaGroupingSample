@@ -20,9 +20,7 @@ public final class PreResultOutput implements ModelOutput<PreResult> {
         this.emitter = emitter;
     }
     @Override public void write(PreResult model) throws IOException {
-        emitter.emit(model.getKeycodeOption());
         emitter.emit(model.getUseridOption());
-        emitter.emit(model.getTermOption());
         emitter.emit(model.getData0Option());
         emitter.emit(model.getData1Option());
         emitter.emit(model.getAlertOption());

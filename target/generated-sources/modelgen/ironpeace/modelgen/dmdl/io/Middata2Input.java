@@ -23,7 +23,7 @@ public final class Middata2Input implements ModelInput<Middata2> {
         if(parser.next() == false) {
             return false;
         }
-        parser.fill(model.getKeycodeOption());
+        parser.fill(model.getUseridOption());
         parser.fill(model.getAlertOption());
         parser.endRecord();
         return true;

@@ -1,6 +1,6 @@
 package ironpeace.batchapp.gsBatch.theGroupingSampleJobFlow.stage0001;
 import com.asakusafw.runtime.flow.SegmentedWritable;
-import com.asakusafw.runtime.value.IntOption;
+import com.asakusafw.runtime.value.StringOption;
 import ironpeace.modelgen.dmdl.model.OriginalData;
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -17,16 +17,16 @@ import java.io.IOException;
         return this.portId;
     }
     /**
-     * GroupingSampleOperator.join4Mid1#t11が利用するキー (keycode)
+     * GroupingSampleOperator.join4Mid1#t11が利用するキー (userid)
      */
-    public IntOption groupElem0Term1 = new IntOption();
+    public StringOption groupElem0Term1 = new StringOption();
     /**
      * GroupingSampleOperator.join4Mid1#t11のキーの元になるモデルオブジェクトを設定する
      * @param source 設定するモデルオブジェクト
      */
     public void setPort1(OriginalData source) {
         this.portId = 1;
-        this.groupElem0Term1.copyFrom(source.getKeycodeOption());
+        this.groupElem0Term1.copyFrom(source.getUseridOption());
     }
     /**
      * GroupingSampleOperator.join4Mid1#t12のキーの元になるモデルオブジェクトを設定する
@@ -34,7 +34,7 @@ import java.io.IOException;
      */
     public void setPort2(OriginalData source) {
         this.portId = 2;
-        this.groupElem0Term1.copyFrom(source.getKeycodeOption());
+        this.groupElem0Term1.copyFrom(source.getUseridOption());
     }
     /**
      * 指定のキーのグループ情報をこのオブジェクトに複製する

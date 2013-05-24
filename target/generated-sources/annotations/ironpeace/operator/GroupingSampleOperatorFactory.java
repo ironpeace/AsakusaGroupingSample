@@ -23,6 +23,53 @@ import javax.annotation.Generated;
 @Generated("OperatorFactoryClassGenerator:0.0.1") public class GroupingSampleOperatorFactory {
     /**
      */
+    public static final class Balance implements Operator {
+        private final FlowElementResolver $;
+        /**
+         */
+        public final Source<OriginalData> before;
+        /**
+         */
+        public final Source<OriginalData> current;
+        /**
+         */
+        public final Source<OriginalData> old;
+        Balance(Source<OriginalData> originaldata) {
+            OperatorDescription.Builder builder = new OperatorDescription.Builder(Branch.class);
+            builder.declare(GroupingSampleOperator.class, GroupingSampleOperatorImpl.class, "balance");
+            builder.declareParameter(OriginalData.class);
+            builder.addInput("originaldata", originaldata);
+            builder.addOutput("before", originaldata);
+            builder.addOutput("current", originaldata);
+            builder.addOutput("old", originaldata);
+            builder.addAttribute(ObservationCount.DONT_CARE);
+            this.$ = builder.toResolver();
+            this.$.resolveInput("originaldata", originaldata);
+            this.before = this.$.resolveOutput("before");
+            this.current = this.$.resolveOutput("current");
+            this.old = this.$.resolveOutput("old");
+        }
+        /**
+         * この演算子の名前を設定する。
+         * @param newName 設定する名前
+         * @return この演算子オブジェクト (this)
+         * @throws IllegalArgumentException 引数に{@code null}が指定された場合
+         */
+        public GroupingSampleOperatorFactory.Balance as(String newName) {
+            this.$.setName(newName);
+            return this;
+        }
+    }
+    /**
+     * @param originaldata
+     * @return 生成した演算子オブジェクト
+     * @see GroupingSampleOperator#balance(OriginalData)
+     */
+    public GroupingSampleOperatorFactory.Balance balance(Source<OriginalData> originaldata) {
+        return new GroupingSampleOperatorFactory.Balance(originaldata);
+    }
+    /**
+     */
     public static final class Join4Mid1 implements Operator {
         private final FlowElementResolver $;
         /**
@@ -33,19 +80,19 @@ import javax.annotation.Generated;
          */
         public final Source<OriginalData> missed;
         Join4Mid1(Source<OriginalData> t11, Source<OriginalData> t12) {
-            OperatorDescription.Builder builder = new OperatorDescription.Builder(MasterJoin.class);
-            builder.declare(GroupingSampleOperator.class, GroupingSampleOperatorImpl.class, "join4Mid1");
-            builder.declareParameter(OriginalData.class);
-            builder.declareParameter(OriginalData.class);
-            builder.addInput("t11", t11, new ShuffleKey(Arrays.asList(new String[]{"keycode"}), Arrays.asList(new 
+            OperatorDescription.Builder builder0 = new OperatorDescription.Builder(MasterJoin.class);
+            builder0.declare(GroupingSampleOperator.class, GroupingSampleOperatorImpl.class, "join4Mid1");
+            builder0.declareParameter(OriginalData.class);
+            builder0.declareParameter(OriginalData.class);
+            builder0.addInput("t11", t11, new ShuffleKey(Arrays.asList(new String[]{"userid"}), Arrays.asList(new 
                     ShuffleKey.Order[]{})));
-            builder.addInput("t12", t12, new ShuffleKey(Arrays.asList(new String[]{"keycode"}), Arrays.asList(new 
+            builder0.addInput("t12", t12, new ShuffleKey(Arrays.asList(new String[]{"userid"}), Arrays.asList(new 
                     ShuffleKey.Order[]{})));
-            builder.addOutput("joined", Middata1.class);
-            builder.addOutput("missed", t12);
-            builder.addAttribute(FlowBoundary.SHUFFLE);
-            builder.addAttribute(ObservationCount.DONT_CARE);
-            this.$ = builder.toResolver();
+            builder0.addOutput("joined", Middata1.class);
+            builder0.addOutput("missed", t12);
+            builder0.addAttribute(FlowBoundary.SHUFFLE);
+            builder0.addAttribute(ObservationCount.DONT_CARE);
+            this.$ = builder0.toResolver();
             this.$.resolveInput("t11", t11);
             this.$.resolveInput("t12", t12);
             this.joined = this.$.resolveOutput("joined");
@@ -53,12 +100,12 @@ import javax.annotation.Generated;
         }
         /**
          * この演算子の名前を設定する。
-         * @param newName 設定する名前
+         * @param newName0 設定する名前
          * @return この演算子オブジェクト (this)
          * @throws IllegalArgumentException 引数に{@code null}が指定された場合
          */
-        public GroupingSampleOperatorFactory.Join4Mid1 as(String newName) {
-            this.$.setName(newName);
+        public GroupingSampleOperatorFactory.Join4Mid1 as(String newName0) {
+            this.$.setName(newName0);
             return this;
         }
     }
@@ -83,19 +130,19 @@ import javax.annotation.Generated;
          */
         public final Source<Middata2> missed;
         Join4PreResult(Source<Middata1> mid1, Source<Middata2> mid2) {
-            OperatorDescription.Builder builder0 = new OperatorDescription.Builder(MasterJoin.class);
-            builder0.declare(GroupingSampleOperator.class, GroupingSampleOperatorImpl.class, "join4PreResult");
-            builder0.declareParameter(Middata1.class);
-            builder0.declareParameter(Middata2.class);
-            builder0.addInput("mid1", mid1, new ShuffleKey(Arrays.asList(new String[]{"keycode"}), Arrays.asList(new 
+            OperatorDescription.Builder builder1 = new OperatorDescription.Builder(MasterJoin.class);
+            builder1.declare(GroupingSampleOperator.class, GroupingSampleOperatorImpl.class, "join4PreResult");
+            builder1.declareParameter(Middata1.class);
+            builder1.declareParameter(Middata2.class);
+            builder1.addInput("mid1", mid1, new ShuffleKey(Arrays.asList(new String[]{"userid"}), Arrays.asList(new 
                     ShuffleKey.Order[]{})));
-            builder0.addInput("mid2", mid2, new ShuffleKey(Arrays.asList(new String[]{"keycode"}), Arrays.asList(new 
+            builder1.addInput("mid2", mid2, new ShuffleKey(Arrays.asList(new String[]{"userid"}), Arrays.asList(new 
                     ShuffleKey.Order[]{})));
-            builder0.addOutput("joined", PreResult.class);
-            builder0.addOutput("missed", mid2);
-            builder0.addAttribute(FlowBoundary.SHUFFLE);
-            builder0.addAttribute(ObservationCount.DONT_CARE);
-            this.$ = builder0.toResolver();
+            builder1.addOutput("joined", PreResult.class);
+            builder1.addOutput("missed", mid2);
+            builder1.addAttribute(FlowBoundary.SHUFFLE);
+            builder1.addAttribute(ObservationCount.DONT_CARE);
+            this.$ = builder1.toResolver();
             this.$.resolveInput("mid1", mid1);
             this.$.resolveInput("mid2", mid2);
             this.joined = this.$.resolveOutput("joined");
@@ -103,12 +150,12 @@ import javax.annotation.Generated;
         }
         /**
          * この演算子の名前を設定する。
-         * @param newName0 設定する名前
+         * @param newName1 設定する名前
          * @return この演算子オブジェクト (this)
          * @throws IllegalArgumentException 引数に{@code null}が指定された場合
          */
-        public GroupingSampleOperatorFactory.Join4PreResult as(String newName0) {
-            this.$.setName(newName0);
+        public GroupingSampleOperatorFactory.Join4PreResult as(String newName1) {
+            this.$.setName(newName1);
             return this;
         }
     }
@@ -120,53 +167,6 @@ import javax.annotation.Generated;
      */
     public GroupingSampleOperatorFactory.Join4PreResult join4PreResult(Source<Middata1> mid1, Source<Middata2> mid2) {
         return new GroupingSampleOperatorFactory.Join4PreResult(mid1, mid2);
-    }
-    /**
-     */
-    public static final class Balance implements Operator {
-        private final FlowElementResolver $;
-        /**
-         */
-        public final Source<OriginalData> before;
-        /**
-         */
-        public final Source<OriginalData> current;
-        /**
-         */
-        public final Source<OriginalData> old;
-        Balance(Source<OriginalData> originaldata) {
-            OperatorDescription.Builder builder1 = new OperatorDescription.Builder(Branch.class);
-            builder1.declare(GroupingSampleOperator.class, GroupingSampleOperatorImpl.class, "balance");
-            builder1.declareParameter(OriginalData.class);
-            builder1.addInput("originaldata", originaldata);
-            builder1.addOutput("before", originaldata);
-            builder1.addOutput("current", originaldata);
-            builder1.addOutput("old", originaldata);
-            builder1.addAttribute(ObservationCount.DONT_CARE);
-            this.$ = builder1.toResolver();
-            this.$.resolveInput("originaldata", originaldata);
-            this.before = this.$.resolveOutput("before");
-            this.current = this.$.resolveOutput("current");
-            this.old = this.$.resolveOutput("old");
-        }
-        /**
-         * この演算子の名前を設定する。
-         * @param newName1 設定する名前
-         * @return この演算子オブジェクト (this)
-         * @throws IllegalArgumentException 引数に{@code null}が指定された場合
-         */
-        public GroupingSampleOperatorFactory.Balance as(String newName1) {
-            this.$.setName(newName1);
-            return this;
-        }
-    }
-    /**
-     * @param originaldata
-     * @return 生成した演算子オブジェクト
-     * @see GroupingSampleOperator#balance(OriginalData)
-     */
-    public GroupingSampleOperatorFactory.Balance balance(Source<OriginalData> originaldata) {
-        return new GroupingSampleOperatorFactory.Balance(originaldata);
     }
     /**
      */
